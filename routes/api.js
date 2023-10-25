@@ -1,6 +1,5 @@
 let express = require('express');
 let router = express.Router();
-module.exports = router;
 
 var data = [
     { id: 0, name: "person1", username: "user1" },
@@ -44,9 +43,7 @@ router.delete('/person/:id', function(req, res, next) {
     data[index] = data.filter(person => person.id != req.params.id);
     res.send(data[index]);
  });
- app.use(function(req,res,next) {
-    console.log("Connection made from: ", req.ip);
-    next();
-  });
+
+module.exports = router;
   
 
